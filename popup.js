@@ -109,18 +109,7 @@ await executeModule(\`
     )
   }
 
-  /**
-   * Tracks an event via Google Analytics.
-   * @param event
-   */
-  function trackEvent (...event) {
-    globalThis._gaq = globalThis._gaq || []
-    globalThis._gaq.push(['_trackEvent', ...event])
-  }
-
   // Execution starts here when the popup opens.
-  window.addEventListener('unload', () => trackEvent('BrowserAction Popup', 'Closed'))
-
   loadConfig()
   const debouncedSaveConfig = debounce(saveConfig)
   getAllCheckboxes().forEach(checkbox => checkbox.addEventListener('change', debouncedSaveConfig))
