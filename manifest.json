@@ -15,11 +15,17 @@
     "default_popup": "popup.html"
   },
 
-  "web_accessible_resources": [
-    "popup.html",
-    "popup.js",
-    "vendor/*.js",
-    "lib/*.js"
+  "content_scripts": [
+    {
+      "js": [
+        "popup.js",
+        "vendor/*.js",
+        "lib/*.js"
+      ],
+      "matches": [
+        "https://*.trello.com/*"
+      ]
+    }
   ],
 
   "icons": {
@@ -29,6 +35,7 @@
   },
 
   "permissions": [
-    "activeTab"
+    "activeTab",
+    "scripting"
   ]
 }
